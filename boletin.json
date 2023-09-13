@@ -1,0 +1,33 @@
+[
+  {
+    "Id": "15",
+    "Nombre": "sdjhnsd",
+    "Direccion": "dadsa",
+    "Edad": 21,
+    "Quices": [],
+    "Trabajos": [],
+    "Parciales": []
+  },
+  {
+    "Id": "1",
+    "Nombre": "dtfdrte",
+    "Direccion": "retret",
+    "Edad": 23,
+    "Quices": [
+      21.0,
+      100.0,
+      21.0
+    ],
+    "Trabajos": [],
+    "Parciales": []
+  },
+  {
+    "Id": "45",
+    "Nombre": "oiujhipj",
+    "Direccion": "ihgiug",
+    "Edad": 65,
+    "Quices": [],
+    "Trabajos": [],
+    "Parciales": []
+  }
+]
