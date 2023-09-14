@@ -164,9 +164,9 @@ while (bandera)
                         break;
                     case 3:
                         Console.Clear();
-                        // No es necesario declarar 'student' nuevamente aquí, ya está declarada al principio del archivo.
+
                         student.EditarNotas(ListaStudi);
-                        MisFunciones.GuardarDatos(ListaStudi); // Opcional: guardar los cambios
+                        MisFunciones.GuardarDatos(ListaStudi);
                         Console.ReadKey();
                         break;
                     case 4:
@@ -193,14 +193,14 @@ while (bandera)
 
         case 3:
             bool MenuR = true;
-                    Console.Clear();
+            Console.Clear();
             while (MenuR)
             {
                 byte OpcR = MisFunciones.Reportes();
                 switch (OpcR)
                 {
                     case 1:
-                    Console.Clear();
+                        Console.Clear();
                         Estudiante.MostrarTablaEstudiantes();
                         break;
                     case 2:

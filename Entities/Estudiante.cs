@@ -248,14 +248,13 @@ namespace Boletin.Entities
             }
         }
 
-        // En Estudiante.cs
         public void EditarNotas(List<Estudiante> ListaStudi)
         {
             Console.Clear();
             Console.WriteLine("Ingrese el ID del estudiante para editar notas:");
             string codigoEstudiante = Console.ReadLine();
 
-            // Buscar el estudiante en la lista
+
             Estudiante estudiante = ListaStudi.FirstOrDefault(x => x.Id.Equals(codigoEstudiante));
 
             if (estudiante != null)
@@ -303,7 +302,7 @@ namespace Boletin.Entities
                         Console.WriteLine($"Ingrese la nueva nota:");
                         if (float.TryParse(Console.ReadLine(), out float nuevaNota))
                         {
-                            // Actualizar la nota en la posición especificada
+
                             notas[posicionNota - 1] = nuevaNota;
 
                             Console.WriteLine($"La {tipoNota.ToLower()} se ha editado correctamente.");
@@ -330,57 +329,57 @@ namespace Boletin.Entities
         }
 
 
-    public static void MostrarTablaEstudiantes()
-{
-    // Lee el contenido del archivo JSON
-    string jsonPath = "boletin.json"; // Cambia esto por la ruta real de tu archivo JSON
-    string jsonContent = File.ReadAllText(jsonPath);
-
-    // Deserializa los datos JSON en una lista de estudiantes
-    List<Estudiante> estudiantes = JsonConvert.DeserializeObject<List<Estudiante>>(jsonContent);
-
-    // Muestra la tabla de estudiantes y sus notas
-    Console.WriteLine("-----------------------------------------------------------------------------------------");
-    Console.WriteLine("| Código        | Nombre                   |       Quices      | Trabajos | Parciales  |");
-    Console.WriteLine("|               |                          | Q1 | Q2 | Q3 | Q4 | T1 | T2 | P1 | P2 | P3 |");
-    Console.WriteLine("|-------------- |------------------------- |----|----|----|----|----|----|----|----|----|");
-
-    foreach (var estudiante in estudiantes)
-    {
-        string id = estudiante.Id.PadRight(14);
-        string nombre = estudiante.Nombre.PadRight(25);
-        string quices = ObtenerNotas(estudiante.Quices, 4);
-        string trabajos = ObtenerNotas(estudiante.Trabajos, 2);
-        string parciales = ObtenerNotas(estudiante.Parciales, 3);
-
-        Console.WriteLine($"| {id} | {nombre} | {quices} | {trabajos} | {parciales} |");
-    }
-
-    Console.WriteLine("-----------------------------------------------------------------------------------------");
-}
-
-public static string ObtenerNotas(List<float> notas, int cantidad)
-{
-    string notasStr = "";
-
-    for (int i = 0; i < cantidad; i++)
-    {
-        string nota = i < notas.Count ? notas[i].ToString("N2") : "   ";
-        notasStr += nota.PadRight(6);
-
-        if (i < cantidad - 1)
+        public static void MostrarTablaEstudiantes()
         {
-            notasStr += " | ";
-        }
-    }
 
-    return notasStr;
-}
+            string jsonPath = "boletin.json";
+            string jsonContent = File.ReadAllText(jsonPath);
+
+
+            List<Estudiante> estudiantes = JsonConvert.DeserializeObject<List<Estudiante>>(jsonContent);
+
+
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
+            Console.WriteLine("| Código        | Nombre                   |       Quices      | Trabajos | Parciales  |");
+            Console.WriteLine("|               |                          | Q1 | Q2 | Q3 | Q4 | T1 | T2 | P1 | P2 | P3 |");
+            Console.WriteLine("|-------------- |------------------------- |----|----|----|----|----|----|----|----|----|");
+
+            foreach (var estudiante in estudiantes)
+            {
+                string id = estudiante.Id.PadRight(14);
+                string nombre = estudiante.Nombre.PadRight(25);
+                string quices = ObtenerNotas(estudiante.Quices, 4);
+                string trabajos = ObtenerNotas(estudiante.Trabajos, 2);
+                string parciales = ObtenerNotas(estudiante.Parciales, 3);
+
+                Console.WriteLine($"| {id} | {nombre} | {quices} | {trabajos} | {parciales} |");
+            }
+
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
+        }
+
+        public static string ObtenerNotas(List<float> notas, int cantidad)
+        {
+            string notasStr = "";
+
+            for (int i = 0; i < cantidad; i++)
+            {
+                string nota = i < notas.Count ? notas[i].ToString("N2") : "   ";
+                notasStr += nota.PadRight(6);
+
+                if (i < cantidad - 1)
+                {
+                    notasStr += " | ";
+                }
+            }
+
+            return notasStr;
+        }
 
 
         static void Main()
         {
-            string jsonPath = "boletin.json"; // Reemplaza esto con la ruta de tu archivo JSON
+            string jsonPath = "boletin.json";
             List<Estudiante> ListaStudi = JsonConvert.DeserializeObject<List<Estudiante>>(File.ReadAllText(jsonPath));
 
             ListarDefinitivasYNotaFinal(ListaStudi);

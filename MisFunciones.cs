@@ -17,7 +17,7 @@ namespace Boletin
             Console.WriteLine("4. Eliminar Estudiante");
             Console.WriteLine("5. Regresar al menu principal");
             return Convert.ToByte(Console.ReadLine());
-            
+
         }
         public static byte MenuNotasPrin()
         {
@@ -47,9 +47,9 @@ namespace Boletin
 
         public static void GuardarDatos(List<Estudiante> lstListado)
         {
-            // Serializa la lista de estudiantes a formato JSON con formato indentado.
+
             string json = JsonConvert.SerializeObject(lstListado, Formatting.Indented);
-            //Se escribe todo lo que ingrese el usuario en el json
+
             File.WriteAllText("boletin.json", json);
         }
 
@@ -59,9 +59,9 @@ namespace Boletin
 
             if (File.Exists("boletin.json"))
             {
-                //abre el archivo para la lectura
+
                 using (StreamReader reader = new StreamReader("boletin.json"))
-                //el streamreader  para abrir y leer el archivo "boletin.json"
+
                 {
                     string json = reader.ReadToEnd();
                     lstListado = JsonConvert.DeserializeObject<List<Estudiante>>(json);
@@ -70,7 +70,7 @@ namespace Boletin
 
             return lstListado;
         }
-        
+
     }
 
 
