@@ -8,7 +8,27 @@ namespace Boletin
 {
     public class MisFunciones
     {
-        public static byte MenuNotas()
+
+        public static byte MenuEstudiantes()
+        {
+            Console.WriteLine("1. Registrar Estudinte");
+            Console.WriteLine("2. Buscar Estudiante");
+            Console.WriteLine("3. Editar Estudiante");
+            Console.WriteLine("4. Eliminar Estudiante");
+            Console.WriteLine("5. Regresar al menu principal");
+            return Convert.ToByte(Console.ReadLine());
+            
+        }
+        public static byte MenuNotasPrin()
+        {
+            Console.WriteLine("1. Registrar nota");
+            Console.WriteLine("2. Buscar nota");
+            Console.WriteLine("3. Editar nota");
+            Console.WriteLine("4. Eliminar nota");
+            Console.WriteLine("5. Regresar al menu principal");
+            return Convert.ToByte(Console.ReadLine());
+        }
+        public static byte MenuNotasA()
         {
             Console.WriteLine("1. Quices");
             Console.WriteLine("2. Trabajos");
@@ -50,6 +70,8 @@ namespace Boletin
 
             return lstListado;
         }
+        
     }
+
 
 }

@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace Boletin.Entities
 {
-    public class Boletin
+ 
+        public class Boletin
     {
-        List<float> quices = new List<float>();
-        List<float> trabajos = new List<float>();
-        List<float> parciales = new List<float>();
+        protected List<float> quices = new List<float>();
+        protected List<float> trabajos = new List<float>();
+        protected List<float> parciales = new List<float>();
 
         public Boletin()
         {
@@ -25,4 +26,4 @@ namespace Boletin.Entities
         public List<float> Trabajos { get { return trabajos; } set { trabajos = value; } }
         public List<float> Parciales { get { return parciales; } set { parciales = value; } }
     }
-}
+    }
