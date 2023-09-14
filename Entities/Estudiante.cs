@@ -329,34 +329,34 @@ namespace Boletin.Entities
         }
 
 
-        public static void MostrarTablaEstudiantes()
-        {
+public static void MostrarTablaEstudiantes()
+{
+    string jsonPath = "boletin.json";
+    string jsonContent = File.ReadAllText(jsonPath);
+    List<Estudiante> estudiantes = JsonConvert.DeserializeObject<List<Estudiante>>(jsonContent);
 
-            string jsonPath = "boletin.json";
-            string jsonContent = File.ReadAllText(jsonPath);
+    Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------");
+    Console.WriteLine("| Código           | Nombre                                     |              Quices             |    Trabajos   |       Parciales        |");
+    Console.WriteLine("|                  |                                            |  Q1   |   Q2   |   Q3   |  Q4   |   T1  |   T2  |   P1  |   P2   |   P3  |");
+    Console.WriteLine("|----------------- |--------------------------------------------|-------|------- |--------|-------|-------|-------|-------|--------|-------|");
 
+    foreach (var estudiante in estudiantes)
+    {
+        string id = estudiante.Id.PadRight(18);
+        string nombre = estudiante.Nombre.PadRight(41);
+        string quices = ObtenerNotas(estudiante.Quices, 4);
+        string trabajos = ObtenerNotas(estudiante.Trabajos, 2);
+        string parciales = ObtenerNotas(estudiante.Parciales, 3);
+        double promedioQuices = estudiante.Quices.Count > 0 ? estudiante.Quices.Average() : 0;
+        double promedioTrabajos = estudiante.Trabajos.Count > 0 ? estudiante.Trabajos.Average() : 0;
+        double promedioParciales = estudiante.Parciales.Count > 0 ? estudiante.Parciales.Average() : 0;
+        double notaFinal = (promedioQuices * 0.25) + (promedioTrabajos * 0.15) + (promedioParciales * 0.6);
 
-            List<Estudiante> estudiantes = JsonConvert.DeserializeObject<List<Estudiante>>(jsonContent);
+        Console.WriteLine($"|{id}|{nombre}   |{quices}|{trabajos}|{parciales}|");
+    }
 
-
-            Console.WriteLine("-----------------------------------------------------------------------------------------");
-            Console.WriteLine("| Código        | Nombre                   |       Quices      | Trabajos | Parciales  |");
-            Console.WriteLine("|               |                          | Q1 | Q2 | Q3 | Q4 | T1 | T2 | P1 | P2 | P3 |");
-            Console.WriteLine("|-------------- |------------------------- |----|----|----|----|----|----|----|----|----|");
-
-            foreach (var estudiante in estudiantes)
-            {
-                string id = estudiante.Id.PadRight(14);
-                string nombre = estudiante.Nombre.PadRight(25);
-                string quices = ObtenerNotas(estudiante.Quices, 4);
-                string trabajos = ObtenerNotas(estudiante.Trabajos, 2);
-                string parciales = ObtenerNotas(estudiante.Parciales, 3);
-
-                Console.WriteLine($"| {id} | {nombre} | {quices} | {trabajos} | {parciales} |");
-            }
-
-            Console.WriteLine("-----------------------------------------------------------------------------------------");
-        }
+    Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------");
+}
 
         public static string ObtenerNotas(List<float> notas, int cantidad)
         {

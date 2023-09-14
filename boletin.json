@@ -1,43 +1,30 @@
 [
   {
-    "Id": "15",
-    "Nombre": "sdjhnsd",
-    "Direccion": "dadsa",
-    "Edad": 21,
-    "Quices": [],
-    "Trabajos": [],
-    "Parciales": []
-  },
-  {
-    "Id": "1",
-    "Nombre": "dtfdrte",
-    "Direccion": "retret",
-    "Edad": 23,
+    "Id": "123",
+    "Nombre": "Juan",
+    "Direccion": "odasosd",
+    "Edad": 18,
+    "Notas": [],
     "Quices": [
-      21.0,
-      21.0
+      5.0,
+      69.0
     ],
-    "Trabajos": [],
-    "Parciales": []
-  },
-  {
-    "Id": "45",
-    "Nombre": "oiujhipj",
-    "Direccion": "ihgiug",
-    "Edad": 65,
-    "Quices": [],
-    "Trabajos": [],
+    "Trabajos": [
+      2.0
+    ],
     "Parciales": []
   },
   {
     "Id": "456",
     "Nombre": "Paola",
-    "Direccion": "kdnfspdf",
+    "Direccion": "djiabdna",
     "Edad": 18,
-    "Quices": [
-      78.0
-    ],
+    "Notas": [],
+    "Quices": [],
     "Trabajos": [],
-    "Parciales": []
+    "Parciales": [
+      5.0,
+      5.0
+    ]
   }
 ]
