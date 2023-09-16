@@ -33,7 +33,7 @@ namespace Boletin
             Console.WriteLine("1. Quices");
             Console.WriteLine("2. Trabajos");
             Console.WriteLine("3. Parciales");
-            Console.WriteLine("4. Salir al menu principal");
+            Console.WriteLine("4. Regrear al menu de notas");
             return Convert.ToByte(Console.ReadLine());
         }
 

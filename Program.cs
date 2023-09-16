@@ -147,9 +147,14 @@ while (bandera)
                                 student.AñadirNotas(ListaStudi, OpcN);
                                 MisFunciones.GuardarDatos(ListaStudi);
                             }
+                            if (OpcN == 4)
+                            {
+                                Console.Clear();
+                                MenuN = false;
+                            }
                             else
                             {
-                                MenuN = false;
+                                break;
                             }
                         }
                         break;
