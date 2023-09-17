@@ -141,20 +141,21 @@ while (bandera)
                         {
                             Console.Clear();
                             byte OpcN = MisFunciones.MenuNotasA();
-                            if (OpcN != 0 || OpcN > 3)
+
+                            if (OpcN == 4)
+                            {
+                                Console.Clear();
+                                MenuN = false; 
+                            }
+                            else if (OpcN >= 1 && OpcN <= 3)
                             {
                                 Console.Clear();
                                 student.AñadirNotas(ListaStudi, OpcN);
                                 MisFunciones.GuardarDatos(ListaStudi);
                             }
-                            if (OpcN == 4)
-                            {
-                                Console.Clear();
-                                MenuN = false;
-                            }
                             else
                             {
-                                break;
+                                break; 
                             }
                         }
                         break;
